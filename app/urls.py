@@ -9,4 +9,9 @@ urlpatterns = [
   path('do/',views.do,name='do'),
   path('portfolio/',views.portfolio,name='portfolio'),
   path('contact/',views.contact,name='contact'),
-] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
+]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
+else:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
