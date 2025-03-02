@@ -41,7 +41,7 @@ EMAIL_HOST_PASSWORD = 'wahs rrln iizu uyzk'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  
 
 INSTALLED_APPS = [
-    'whitenoise.runserver.nostatic',
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+
 ]
 
 MIDDLEWARE = [
@@ -127,7 +128,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_URL = "static/"
 STATIC_DIRS = [os.path.join(BASE_DIR, "app/static")]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build","static")
